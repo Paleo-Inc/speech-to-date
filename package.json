@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chrono-node": "^2.6.4",
+    "dayjs": "^1.11.9",
+    "node": "^20.5.0",
+    "nodemon": "^3.0.1"
+  }
+}
