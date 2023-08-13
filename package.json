@@ -1,6 +1,6 @@
 {
   "name": "speech-to-date",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package is designed to take natural language input and convert it into specific dates or date ranges. Its original purpose is to match date values stored in vector databases with user messages.",
   "main": "app.js",
   "scripts": {
