@@ -82,7 +82,7 @@ function processUserMessage(message) {
         const day = dayjs(now).subtract(i, "day");
 
         console.log(
-          `OUTPUT Day ${day.format("dddd MMMM Do YYYY")} / Week: ${day.format(
+          `OUTPUT ${day.format("dddd MMMM Do YYYY")} / Week: ${day.format(
             "ww YYYY"
           )}`
         );
@@ -130,9 +130,7 @@ function processUserMessage(message) {
         const monthNumber = dayjs(now).subtract(i, "month");
         const month = dayjs(now).subtract(i, "month");
 
-        console.log(
-          `OUTPUT Month ${month.format("MMMM")} ${month.format("YYYY")}`
-        );
+        console.log(`OUTPUT ${month.format("MMMM")} ${month.format("YYYY")}`);
       }
       console.log("-Contained months");
     } else {
@@ -155,11 +153,11 @@ function processUserMessage(message) {
 
       for (let i = 0; i < total_years; i++) {
         const yearNumber = dayjs(now).subtract(i, "year").year();
-        console.log(`OUTPUT Year ${yearNumber}`);
+        console.log(`OUTPUT ${yearNumber}`);
       }
       console.log("-Contained years");
     } else {
-      console.log(`OUTPUT Year ${dayjs(user_message_date).year()}`);
+      console.log(`OUTPUT ${dayjs(user_message_date).year()}`);
       console.log("-Contained year");
     }
   }
