@@ -24,9 +24,7 @@ function speechDate(message) {
 
   console.log(`-User message: ${message}`);
   console.log(
-    `-Today: ${now.format("dddd MMMM Do YYYY")} / Week: ${now.format(
-      "ww YYYY"
-    )}`
+    `-Today: ${now.format("dddd MMMM Do YYYY")} / Week ${now.format("ww YYYY")}`
   );
   console.log(`-Message date: ${message_date}`);
 
@@ -86,16 +84,16 @@ function speechDate(message) {
         console.log("This day: " + dayjs().day());
         console.log("Total days: " + total_days);
 
-        for (let i = 0; i < total_days; i++) {
-          const dayNumber = dayjs(now).subtract(i, "day");
-          const day = dayjs(now).subtract(i, "day");
+        const daysArray = [];
 
-          console.log(
-            `OUTPUT ${day.format("dddd MMMM Do YYYY")} / Week: ${day.format(
-              "ww YYYY"
-            )}`
+        for (let i = 0; i < total_days; i++) {
+          const day = dayjs(now).subtract(i, "day");
+          daysArray.push(
+            `${day.format("dddd MMMM Do YYYY")} / Week ${day.format("ww YYYY")}`
           );
         }
+
+        console.log(daysArray);
         console.log("Contained days");
       } else {
         console.log(
@@ -111,10 +109,14 @@ function speechDate(message) {
 
         let total_weeks = dayjs().diff(dayjs(user_message_date), "week");
 
+        const weeksArray = [];
+
         for (let i = 0; i < total_weeks; i++) {
           const week = dayjs(now).subtract(i, "week");
-          console.log(`OUTPUT Week ${week.week()} ${week.year()}`);
+          weeksArray.push(`Week ${week.week()} ${week.year()}`);
         }
+
+        console.log(weeksArray);
       } else {
         console.log("Contained week");
         console.log(
@@ -130,14 +132,13 @@ function speechDate(message) {
         let total_months = dayjs().diff(dayjs(user_message_date), "month");
         console.log("-This month: " + dayjs().month());
         console.log("-Total months: " + total_months);
+        const monthsArray = [];
 
         for (let i = 0; i < total_months; i++) {
-          const monthNumber = dayjs(now).subtract(i, "month");
           const month = dayjs(now).subtract(i, "month");
-
-          console.log(`OUTPUT ${month.format("MMMM")} ${month.format("YYYY")}`);
+          monthsArray.push(`${month.format("MMMM")} ${month.format("YYYY")}`);
         }
-        console.log("-Contained months");
+        console.log(monthsArray);
       } else {
         console.log(
           `OUTPUT ${dayjs(user_message_date).format("MMMM")} ${dayjs(
@@ -154,10 +155,14 @@ function speechDate(message) {
         console.log("-This year: " + dayjs().year());
         console.log("-Total years: " + total_years);
 
+        const yearsArray = [];
+
         for (let i = 0; i < total_years; i++) {
           const yearNumber = dayjs(now).subtract(i, "year").year();
-          console.log(`OUTPUT ${yearNumber}`);
+          yearsArray.push(yearNumber);
         }
+
+        console.log(yearsArray);
         console.log("-Contained years");
       } else {
         console.log(`OUTPUT ${dayjs(user_message_date).year()}`);
@@ -178,16 +183,14 @@ function speechDate(message) {
         const isCertain = start.isCertain(unit);
 
         if (unit === "day" && isCertain) {
-          console.log(`OUTPUT ${dayjs(message_date).format("MMMM")}`);
+          console.log(
+            `OUTPUT ${dayjs(message_date).format("dddd MMMM Do YYYY")}`
+          );
           console.log("-Certain day");
           conditionMet = true;
         }
         if (unit === "month" && isCertain) {
-          console.log(
-            `OUTPUT ${dayjs(message_date).format("MMMM")} ${dayjs(
-              message_date
-            ).format("YYYY")}`
-          );
+          console.log(`OUTPUT ${dayjs(message_date).format("MMMM YYYY")}`);
           console.log("-Certain month");
           conditionMet = true;
         }
